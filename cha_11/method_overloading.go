@@ -27,8 +27,13 @@ func (product *Product) calcTax(rate, threshold float64) float64 {
 	return product.price
 }
 
-func (Supplier *Supplier) printDetails() {
-	fmt.Println("Supplier: ", Supplier.name, " City: ", Supplier.city)
+func (Supplier *Supplier) printDetails(showName bool) {
+	if (showName) {
+		fmt.Println("Supplier: ", Supplier.name, " City: ", Supplier.city)
+	} else {
+		fmt.Println("Supplier: ", Supplier.name)
+	}
+	
 }
 
 func main() {
@@ -48,6 +53,6 @@ func main() {
 	}
 
 	for _, s := range suppliers {
-		s.printDetails()
+		s.printDetails(true)
 	}
 }
