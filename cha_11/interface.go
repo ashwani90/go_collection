@@ -34,6 +34,13 @@ func (s Service) getCost(recur bool) float64 {
 	return s.monthlyFee
 }
 
+func calcTotal(expenses []Expense) (total float64) {
+	for _, item := range expenses {
+		total+= item.getCost(true)
+	}
+	return
+}
+
 type Expense interface {
 	getName() string
 	getCost(annual bool) float64
@@ -56,4 +63,7 @@ func main() {
 	for _, expense := range expenses {
 		fmt.Println("Expense: ", expense.getName(), " Cost: ", expense.getCost(true))
 	}
+
+	// using interface in a function
+	fmt.Println("Total: ", calcTotal(expenses))
 }
