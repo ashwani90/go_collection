@@ -27,6 +27,12 @@ func (s Service) getName() string {
 	return s.description
 }
 
+// using interface as an struct field
+type Account struct {
+	accountNumber int
+	expenses []Expense
+}
+
 func (s Service) getCost(recur bool) float64 {
 	if (recur) {
 		return s.monthlyFee * float64(s.durationMonths)
@@ -66,4 +72,17 @@ func main() {
 
 	// using interface in a function
 	fmt.Println("Total: ", calcTotal(expenses))
+
+	account := Account {
+		accountNumber: 12345,
+		expenses: []Expense {
+			Product {"keyak", "Watersports", 275},
+			Service {"Boat Conver", 13, 89.50},
+		},
+	}
+
+	for _, expense := range account.expenses {
+		fmt.Println("Expense: ", expense.getName(), "Cost: ", expense.getCost(true))
+	}
+	fmt.Println("Total: ", calcTotal(account.expenses))
 }
