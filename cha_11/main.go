@@ -1,59 +1,45 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-type Product struct {
-	name, category string
-	price float64
+type Expense interface {
+	getName() string
+	getCost(annual bool) float64
 }
 
-// Defining methods for type alias
-type ProductList []Product
+// type Product struct {
+// 	name, category string
+// 	price float64
+// }
 
-func (products *ProductList) calcCategoryTotals() map[string]float64 {
-	totals := make(map[string]float64)
-	for _, p := range *products {
-		totals[p.category] = totals[p.category] + p.price
+// func (product *Product) getName() string {
+// 	fmt.Println("Name: ", product.name)
+// 	return "a"
+// }
 
-	}
-	return totals
-}
-
-func printDetails(product *Product) {
-	fmt.Println("Name: ", product.name)
-}
-
-// Converting it to a method
-func (product *Product) printDetails() {
-	fmt.Println("Name: ", product.name, " Price is", product.calcTax(.2,100))
-}
-
-func (product *Product) calcTax(rate, threshold float64) float64 {
-	if (product.price > threshold) {
-		return product.price + (product.price*rate)
-	}
-	return product.price
-}
+// func (product *Product) getCost(annual bool) float64 {
+// 	fmt.Println("Name: ", product.name)
+// 	return 25
+// }
 
 func main() {
-	products := []*Product {
-		{"Kayak", "Watersports", 275},
-		{ "LifeJacket", "Watersports", 48.95 },
-		{"Soccer Ball", "Soccer", 19.50},
+	product := Product {"Kayak", "Watersports", 275}
+
+	var expense Expense = &product
+	product.price = 100
+
+	fmt.Println("Product fiueld type: ", product.price)
+	fmt.Println("Product fiueld type: ", expense.getName())
+
+	expenses := []Expense {
+		Service {"Boat Cover", 12,89.50, []string{}},
+		Service {"Boat Cover 2", 12,89.50, []string{}},
 	}
 
-	products2 := ProductList {
-		{"Kayak", "Watersports", 275},
-		{ "LifeJacket", "Watersports", 48.95 },
-		{"Soccer Ball", "Soccer", 19.50},
+	for _, expense := range expenses {
+		s := expense.(Service)
+		fmt.Println("Service: ", s.description)
 	}
-
-	for category, total := range products2.calcCategoryTotals() {
-		fmt.Println("Category: ", category, " Total:  ", total)
-	}
-
-	for _,p := range products {
-		p.printDetails()
-	}
-	fmt.Println("Hello Methods and interfaces")
 }
