@@ -38,8 +38,26 @@ func main() {
 		Service {"Boat Cover 2", 12,89.50, []string{}},
 	}
 
+	// this will fail in type conversion
 	for _, expense := range expenses {
 		s := expense.(Service)
 		fmt.Println("Service: ", s.description)
 	}
+
+	expenses = []Expense {
+		Service {"Boat Cover", 12,89.50, []string{}},
+		Service {"Boat Cover 2", 12,89.50, []string{}},
+		&Product {"Boat Cover 2", "Water",89.50},
+	}
+
+	for _, expense := range expenses {
+		if s, ok := expense.(Service);ok {
+			fmt.Println("Service: ", s.description)
+		} else {
+			fmt.Println("Unable to convert ", s.getName())
+		}
+	}
+
+	// using dynamic types
+	
 }
