@@ -1,58 +1,58 @@
 package main
 
-import "fmt"
+// import "fmt"
 
-type Product struct {
-	name, category string
-	price float64
-}
+// type Product struct {
+// 	name, category string
+// 	price float64
+// }
 
-type Supplier struct {
-	name, city string
-}
+// type Supplier struct {
+// 	name, city string
+// }
 
-func newProduct(name, category string, price float64) *Product {
-	return &Product{name, category, price}
-}
+// func newProduct(name, category string, price float64) *Product {
+// 	return &Product{name, category, price}
+// }
 
-func (product *Product) printDetails() {
-	fmt.Println("Name: ", product.name)
-}
+// func (product *Product) printDetails() {
+// 	fmt.Println("Name: ", product.name)
+// }
 
-func (product *Product) calcTax(rate, threshold float64) float64 {
-	if (product.price > threshold) {
-		return product.price + (product.price*rate)
-	}
+// func (product *Product) calcTax(rate, threshold float64) float64 {
+// 	if (product.price > threshold) {
+// 		return product.price + (product.price*rate)
+// 	}
 	
-	return product.price
-}
+// 	return product.price
+// }
 
-func (Supplier *Supplier) printDetails(showName bool) {
-	if (showName) {
-		fmt.Println("Supplier: ", Supplier.name, " City: ", Supplier.city)
-	} else {
-		fmt.Println("Supplier: ", Supplier.name)
-	}
+// func (Supplier *Supplier) printDetails(showName bool) {
+// 	if (showName) {
+// 		fmt.Println("Supplier: ", Supplier.name, " City: ", Supplier.city)
+// 	} else {
+// 		fmt.Println("Supplier: ", Supplier.name)
+// 	}
 	
-}
+// }
 
-func main() {
-	products := []*Product {
-		newProduct("Kayak", "Watersports", 275),
-		newProduct("LifeJacket", "Watersports", 48.95),
-		newProduct("Soccer Ball", "Soccer", 19.50),
-	}
+// func method_over() {
+// 	products := []*Product {
+// 		newProduct("Kayak", "Watersports", 275),
+// 		newProduct("LifeJacket", "Watersports", 48.95),
+// 		newProduct("Soccer Ball", "Soccer", 19.50),
+// 	}
 
-	for _, p := range products {
-		p.printDetails()
-	}
+// 	for _, p := range products {
+// 		p.printDetails()
+// 	}
 
-	suppliers := []*Supplier {
-		{"Acme Co", "New York City"},
-		{"BoatCo", "Chicago"},
-	}
+// 	suppliers := []*Supplier {
+// 		{"Acme Co", "New York City"},
+// 		{"BoatCo", "Chicago"},
+// 	}
 
-	for _, s := range suppliers {
-		s.printDetails(true)
-	}
-}
+// 	for _, s := range suppliers {
+// 		s.printDetails(true)
+// 	}
+// }
