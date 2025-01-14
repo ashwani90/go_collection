@@ -59,5 +59,14 @@ func main() {
 	}
 
 	// using dynamic types
-	
+	for _, expense := range expenses {
+		switch value := expense.(type) {
+		case Service:
+			fmt.Println("Type is Service", value.description)
+		case *Product:
+			fmt.Println("Type is pointer to Product")
+		default:
+			fmt.Println("Something other")
+		}
+	}
 }
