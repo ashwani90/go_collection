@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"packages/store"
+)
 
 func main() {
-	fmt.Println("Hello packages")
+	product := store.Product {
+		Name: "Kayak",
+		Category: "Watersports",
+		
+	}
+	fmt.Println("Name: ", product.Name)
+	fmt.Println("Category: ", product.Category)
 }
