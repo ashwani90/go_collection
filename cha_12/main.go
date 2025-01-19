@@ -5,7 +5,7 @@ import (
 	"packages/store"
 )
 
-func main() {
+func main2() {
 	product := store.Product {
 		Name: "Kayak",
 		Category: "Watersports",
@@ -14,3 +14,12 @@ func main() {
 	fmt.Println("Name: ", product.Name)
 	fmt.Println("Category: ", product.Category)
 }
+
+func main() {
+	product := store.NewProduct("Kayak", "Watersports", 279)
+
+	fmt.Println("Name: ", product.Name)
+	fmt.Println("Category: ", product.Category)
+	fmt.Println("Price: ", product.Price())
+}
+
