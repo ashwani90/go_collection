@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"packages/store"
+	// using package alias
+	currencyFmt "packages/fmt"
 )
 
 func main2() {
@@ -21,5 +23,6 @@ func main() {
 	fmt.Println("Name: ", product.Name)
 	fmt.Println("Category: ", product.Category)
 	fmt.Println("Price: ", product.Price())
+	fmt.Println("Price: ", currencyFmt.ToCurrency(product.Price()))
 }
 
