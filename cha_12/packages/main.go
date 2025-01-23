@@ -7,6 +7,7 @@ import (
 	// currencyFmt "packages/fmt"
 	// we can also use . import
 	. "packages/fmt"
+	"packages/store/cart"
 )
 
 func main2() {
@@ -27,5 +28,11 @@ func main() {
 	fmt.Println("Price: ", product.Price())
 	// fmt.Println("Price: ", currencyFmt.ToCurrency(product.Price()))
 	fmt.Println("Price: ", ToCurrency(product.Price()))
+	cart := cart.Cart {
+		CustomerName: "Alice",
+		Products: []store.Product{*product},
+	}
+	fmt.Println("Name: ", cart.CustomerName)
+	fmt.Println("Total: ", ToCurrency(cart.GetTotal()))
 }
 
