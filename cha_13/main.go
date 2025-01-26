@@ -13,4 +13,14 @@ func main() {
 	for _, p := range []*store.Product { kayak, lifejacket} {
 		fmt.Println("Name: ", p.Name, "Category: ", p.Category, "Price: ", p.Price(0.2))
 	}
+
+	boats := []*store.Boat {
+		store.NewBoat("Kayak", 275, 1, false),
+		store.NewBoat("Canoe", 400, 2, false),
+		store.NewBoat("Tender", 775, 3, true),
+	}
+
+	for _, b := range boats {
+		fmt.Println("Conventional: ", b.Product.Name, "Direct: ", b.Name)
+	}
 }
