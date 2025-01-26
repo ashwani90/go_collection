@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"composition/store"
+	"cha_13/composition/store"
 )
 
 func main() {
