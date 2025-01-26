@@ -23,4 +23,15 @@ func main() {
 	for _, b := range boats {
 		fmt.Println("Conventional: ", b.Product.Name, "Direct: ", b.Name)
 	}
+
+	rentals := []*store.RentalBoat {
+		store.NewRentalBoat("Rubber", 20, 2, false, false),
+		store.NewRentalBoat("yacht", 50000, 2, true, false),
+		store.NewRentalBoat("Super Yacht", 200, 2, false, false),
+		store.NewRentalBoat("Rubber", 20, 2, false, false),
+	}
+
+	for _, r := range rentals {
+		fmt.Println("Rental Boat:", r.Name, "Rental price: ", r.Price(0.2))
+	}
 }
