@@ -6,6 +6,16 @@ import (
 )
 
 func main() {
+	product := store.NewProduct("Kayak", "Watersports", 279)
+	deal := store.NewSpecialDeal("Weekend Special", product, 50)
+	Name, price, Price := deal.GetDetails()
+
+	fmt.Println("Name: ", Name)
+	fmt.Println("Price field: ", price)
+	fmt.Println("Price method: ", Price)
+}
+
+func main2() {
 	fmt.Println("Hello type and interface composition")
 	kayak := store.NewProduct("Kayak", "Watersports", 275)
 	lifejacket := &store.Product { Name: "Lifejacket", Category: "Watersports"}
