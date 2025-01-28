@@ -13,6 +13,19 @@ func main() {
 	fmt.Println("Name: ", Name)
 	fmt.Println("Price field: ", price)
 	fmt.Println("Price method: ", Price)
+
+	// this gives error of ambiguous selector bundle.Price
+	// type OfferBundle struct {
+	// 	*store.SpecialDeal
+	// 	*store.Product
+	// }
+
+	// bundle := OfferBundle {
+	// 	store.NewSpecialDeal("Weekend Special", product, 50),
+	// 	store.NewProduct("LifeJacket", "Watersorts", 48.95),
+	// }
+
+	// fmt.Println("Price: ", bundle.Price(0))
 }
 
 func main2() {
