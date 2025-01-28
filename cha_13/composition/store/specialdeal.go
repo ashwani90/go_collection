@@ -7,9 +7,9 @@ type SpecialDeal struct {
 }
 
 func NewSpecialDeal(name string, p *Product, discount float64) *SpecialDeal {
-	return &SpecialDeal{name, p.price-discount}
+	return &SpecialDeal{name, p,  p.price-discount}
 }
 
 func (deal *SpecialDeal) GetDetails() (string, float64, float64) {
-	return deal.Name, deal,price, deal,Price(0)
+	return deal.Name, deal.price, deal.Price(0)
 }
