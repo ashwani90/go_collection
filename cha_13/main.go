@@ -25,13 +25,13 @@ func main() {
 	}
 
 	rentals := []*store.RentalBoat {
-		store.NewRentalBoat("Rubber", 20, 2, false, false),
-		store.NewRentalBoat("yacht", 50000, 2, true, false),
-		store.NewRentalBoat("Super Yacht", 200, 2, false, false),
-		store.NewRentalBoat("Rubber", 20, 2, false, false),
+		store.NewRentalBoat("Rubber", 20, 2, false, false, "N/A", "N/A"),
+		store.NewRentalBoat("yacht", 50000, 2, true, false, "Bob", "Alice"),
+		store.NewRentalBoat("Super Yacht", 200, 2, false, false, "Dora", "Charlie"),
+		store.NewRentalBoat("Rubber", 20, 2, false, false, "Dora", "Charlie"),
 	}
 
 	for _, r := range rentals {
-		fmt.Println("Rental Boat:", r.Name, "Rental price: ", r.Price(0.2))
+		fmt.Println("Rental Boat:", r.Name, "Rental price: ", r.Price(0.2), "Captain: ", r.Captain)
 	}
 }
