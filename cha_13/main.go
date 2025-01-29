@@ -39,13 +39,13 @@ func main() {
 	// 	fmt.Println("Name: ", p.Name, "Category: ", p.Category, "Price: ", p.Price(0.2))
 	// }
 
-	products := map[string]*store.Product {
+	products := map[string]*store.ItemForSale {
 		"kayak": store.NewBoat("Kayak", 279, 1, false),
 		"Ball": store.NewProduct("Soccer Ball", "Soccer", 19.50),
 	}
 
-	for _, p := range products {
-		fmt.Println("Name: ", p.Name, "Category: ", p.Category, "Price: ", p.Price(0.2))
+	for key, p := range products {
+		fmt.Println("Key: ", key, "Price: ", p.Price(0.2))
 	}
 }
 
