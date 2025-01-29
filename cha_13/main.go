@@ -71,6 +71,15 @@ func main() {
 				fmt.Println("Key: ", key, "Price: ", p.Price(0.2))
 		}
 	}
+
+	for key, p := range products {
+		switch item := p.(type) {
+			case store.Describable:
+				fmt.Println("Name:", item.GetName(), "Category: ", item.GetCategory(), "Price: ", item.(store.ItemForSale).Price(0.2))
+			default:
+				fmt.Println("Key: ", key, "Price: ", p.Price(0.2))
+		}
+	}
 }
 
 func main2() {
