@@ -26,6 +26,27 @@ func main() {
 	// }
 
 	// fmt.Println("Price: ", bundle.Price(0))
+
+
+	// this in current state will give error
+	// to solve this we will use the composition feature
+	// products := map[string]*store.Product {
+	// 	"kayak": store.NewBoat("Kayak", 279, 1, false),
+	// 	"Ball": store.NewProduct("Soccer Ball", "Soccer", 19.50),
+	// }
+
+	// for _, p := range products {
+	// 	fmt.Println("Name: ", p.Name, "Category: ", p.Category, "Price: ", p.Price(0.2))
+	// }
+
+	products := map[string]*store.Product {
+		"kayak": store.NewBoat("Kayak", 279, 1, false),
+		"Ball": store.NewProduct("Soccer Ball", "Soccer", 19.50),
+	}
+
+	for _, p := range products {
+		fmt.Println("Name: ", p.Name, "Category: ", p.Category, "Price: ", p.Price(0.2))
+	}
 }
 
 func main2() {
