@@ -13,3 +13,17 @@ func NewProduct(name, category string, price float64) *Product {
 	return &Product { name, category, price}
 }
 
+type Describable interface {
+	GetName() string
+	GetCategory() string
+}
+
+
+func (p *Product) GetName() string {
+	return p.Name
+}
+
+func (p *Product) GetCategory() string {
+	return p.Category
+}
+
