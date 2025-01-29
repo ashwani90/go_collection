@@ -47,6 +47,30 @@ func main() {
 	for key, p := range products {
 		fmt.Println("Key: ", key, "Price: ", p.Price(0.2))
 	}
+
+	// Demo for type switch limitation
+	// this gives error
+	// it does not do type assertion
+	// 
+	// for key, p := range products {
+	// 	switch item := p.(type) {
+	// 	case *store.Product, *store.Boat:
+	// 		fmt.Println("Name:", item.Name, "Category: ", item.Category, "Price: ", item.Price(0.2))
+	// 	default:
+	// 		fmt.Println("Key: ", key, "Price: ", p.Price(0.2))
+	// 	}
+	// }
+
+	for key, p := range products {
+		switch item := p.(type) {
+			case *store.Product:
+				fmt.Println("Name:", item.Name, "Category: ", item.Category, "Price: ", item.Price(0.2))
+			case *store.Boat:
+				fmt.Println("Name:", item.Name, "Category: ", item.Category, "Price: ", item.Price(0.2))
+			default:
+				fmt.Println("Key: ", key, "Price: ", p.Price(0.2))
+		}
+	}
 }
 
 func main2() {
