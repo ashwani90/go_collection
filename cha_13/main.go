@@ -80,6 +80,8 @@ func main() {
 				fmt.Println("Key: ", key, "Price: ", p.Price(0.2))
 		}
 	}
+
+	// Composing interfaces: continued
 }
 
 func main2() {
