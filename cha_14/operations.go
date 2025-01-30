@@ -29,7 +29,7 @@ func (group ProductGroup) TotalPrice(category string,) (total float64) {
 	for _,p := range group {
 		fmt.Println(category, "product: ", p.Name)
 		total += p.Price
-		time.Sleep(time.Millisecond*100)
+		time.Sleep(time.Millisecond*1000)
 	}
 	fmt.Println(category, "Subtotal:", ToCurrency(total))
 	return
