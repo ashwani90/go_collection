@@ -16,6 +16,7 @@ func NewProduct(name, category string, price float64) *Product {
 type Describable interface {
 	GetName() string
 	GetCategory() string
+	ItemForSale
 }
 
 
