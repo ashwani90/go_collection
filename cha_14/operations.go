@@ -2,11 +2,22 @@ package main
 
 import "fmt"
 
+
+// without go routine
+// func CalcStoreTotal(data ProductData) {
+// 	var storeTotal float64
+
+// 	for category, group := range data {
+// 		storeTotal += group.TotalPrice(category)
+// 	}
+// 	fmt.Println("Total: ", ToCurrency(storeTotal))
+// }
+
 func CalcStoreTotal(data ProductData) {
 	var storeTotal float64
 
 	for category, group := range data {
-		storeTotal += group.TotalPrice(category)
+		go group.TotalPrice(category)
 	}
 	fmt.Println("Total: ", ToCurrency(storeTotal))
 }
