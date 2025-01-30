@@ -20,7 +20,7 @@ func CalcStoreTotal(data ProductData) {
 	var storeTotal float64
 	var channel chan float64 = make(chan float64)
 	for category, group := range data {
-		go group.TotalPrice(category)
+		go group.TotalPrice(category, channel)
 	}
 	fmt.Println("Total: ", ToCurrency(storeTotal))
 }
