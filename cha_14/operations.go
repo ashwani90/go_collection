@@ -13,6 +13,7 @@ func CalcStoreTotal(data ProductData) {
 
 func (group ProductGroup) TotalPrice(category string,) (total float64) {
 	for _,p := range group {
+		fmt.Println(category, "product: ", p.Name)
 		total += p.Price
 	}
 	fmt.Println(category, "Subtotal:", ToCurrency(total))
