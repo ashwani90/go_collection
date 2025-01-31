@@ -42,7 +42,8 @@ func (group ProductGroup) TotalPrice(category string, resultChannel chan float64
 		total += p.Price
 		time.Sleep(time.Millisecond*1000)
 	}
-	fmt.Println(category, "Subtotal:", ToCurrency(total))
+	fmt.Println(category, "channel sending:", ToCurrency(total))
 	resultChannel<-total
+	fmt.Println(category, "channel send complete")
 	return
 }
