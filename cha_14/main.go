@@ -23,5 +23,10 @@ func main() {
 			break
 		}
 	}
+
+	for details := range dispatchChannel {
+		fmt.Println("Dispatch to", details.Customer, ":", details.Quantity, "x", details.Product.Name)
+	}
+	fmt.Println("Channel has been closed")
 	// this gives error that deadlock
 }
