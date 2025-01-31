@@ -22,8 +22,15 @@ func CalcStoreTotal(data ProductData) {
 	for category, group := range data {
 		go group.TotalPrice(category, channel)
 	}
+	time.Sleep(time.Second*5)
+	fmt.Println("-- Starting reading data from the channel")
+
 	for i:=0;i<len(data);i++ {
-		storeTotal += <- channel
+		fmt.Println("-- channel read pending")
+		value := <-channel
+		fmt.Println("-- channel read complete", value)
+		storeTotal += value
+		time.Sleep(time.Second)
 	}
 	fmt.Println("Total: ", ToCurrency(storeTotal))
 }
