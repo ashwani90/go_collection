@@ -26,4 +26,5 @@ func DispatchOrders(channel chan DispatchNotification) {
 			Product: ProductList[rand.Intn(len(ProductList)-1)],
 		}
 	}
+	close(channel)
 }
