@@ -15,7 +15,8 @@ type DispatchNotification struct {
 var Customers = []string{"Alice", "Bob", "Happu", "Vibhuti", "Manmohan", "Tillu"}
 
 // channle value will be of type DispatchNotification
-func DispatchOrders(channel chan DispatchNotification) {
+// decides on the direction so this in other way can not be done
+func DispatchOrders(channel chan<- DispatchNotification) {
 	rand.Seed(time.Now().UTC().UnixNano())
 	orderCount := rand.Intn(3)+2
 	fmt.Println("OrderCount: ", orderCount)
