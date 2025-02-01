@@ -20,8 +20,12 @@ func main() {
 	var sendOnlyChannel chan<- DispatchNotification = dispatchChannel
 	var receiveChannel <-chan DispatchNotification = dispatchChannel
 
+	// type conversion we can alos do
 	go DispatchOrders(sendOnlyChannel)
 	receiveDispatches(receiveChannel)
+
+	go DispatchOrders(chan<- DispatchNotification(dispatchChannel))
+	receiveDispatches((<-chan DispatchNotification)(dispatchChannel))
 }
 
 func main2() {
