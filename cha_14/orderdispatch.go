@@ -18,7 +18,7 @@ var Customers = []string{"Alice", "Bob", "Happu", "Vibhuti", "Manmohan", "Tillu"
 // decides on the direction so this in other way can not be done
 func DispatchOrders(channel chan<- DispatchNotification) {
 	rand.Seed(time.Now().UTC().UnixNano())
-	orderCount := rand.Intn(3)+2
+	orderCount := rand.Intn(5)+5
 	fmt.Println("OrderCount: ", orderCount)
 	for i:=0;i<orderCount;i++ {
 		channel <- DispatchNotification{
@@ -30,6 +30,7 @@ func DispatchOrders(channel chan<- DispatchNotification) {
 		// 	notification := <- channel
 		// 	fmt.Println("Read:", notification.Customer)
 		// }
+		time.Sleep(time.Millisecond*750)
 	}
 	close(channel)
 }
