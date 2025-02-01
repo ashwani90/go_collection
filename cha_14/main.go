@@ -14,18 +14,30 @@ func receiveDispatches(channel <-chan DispatchNotification) {
 
 // use go run . to run the project
 
+func enumerateProducts(channel chan<- *Product) {
+	for _,p := range ProductList[:3] {
+		channel <- p
+		time.Sleep(time.Millisecond*800)
+	}
+	close(channel)
+}
+
 
 func main() {
 	dispatchChannel := make(chan DispatchNotification, 100)
-	var sendOnlyChannel chan<- DispatchNotification = dispatchChannel
-	var receiveChannel <-chan DispatchNotification = dispatchChannel
+	// var sendOnlyChannel chan<- DispatchNotification = dispatchChannel
+	// var receiveChannel <-chan DispatchNotification = dispatchChannel
+
+	productChannel := make(chan *Product)
+	go enumerateProducts(productChannel)
+	openChannels := 2
 
 	// type conversion we can alos do
-	go DispatchOrders(sendOnlyChannel)
-	receiveDispatches(receiveChannel)
+	// go DispatchOrders(sendOnlyChannel)
+	// receiveDispatches(receiveChannel)
 
-	go DispatchOrders(chan<- DispatchNotification(dispatchChannel))
-	receiveDispatches((<-chan DispatchNotification)(dispatchChannel))
+	// go DispatchOrders(chan<- DispatchNotification(dispatchChannel))
+	// receiveDispatches((<-chan DispatchNotification)(dispatchChannel))
 
 	for {
 		select {
@@ -34,9 +46,22 @@ func main() {
 				fmt.Println("Dispatch to", details.Customer, ":", details.Quantity, 'x', details.Product.Name)
 			} else {
 				fmt.Println("Channel has been closed")
-				goto alldone
+				dispatchChannel = nil
+				openChannels--
+				// goto alldone
+			}
+		case product, ok := <- productChannel:
+			if ok {
+				fmt.Println("Product", product.Name)
+			} else {
+				fmt.Println("Product channel has been closed")
+				productChannel = nil
+				openChannels--
 			}
 		default:
+			if (openChannels == 0) {
+				goto alldone
+			}
 			fmt.Println("-- No message ready to be received")
 			time.Sleep(time.Millisecond*500)
 		}
