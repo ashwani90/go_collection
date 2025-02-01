@@ -26,10 +26,10 @@ func DispatchOrders(channel chan<- DispatchNotification) {
 			Quantity: rand.Intn(10),
 			Product: ProductList[rand.Intn(len(ProductList)-1)],
 		}
-		if (i==1) {
-			notification := <- channel
-			fmt.Println("Read:", notification.Customer)
-		}
+		// if (i==1) {
+		// 	notification := <- channel
+		// 	fmt.Println("Read:", notification.Customer)
+		// }
 	}
 	close(channel)
 }
