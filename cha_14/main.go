@@ -22,7 +22,7 @@ func receiveDispatches(channel <-chan DispatchNotification) {
 // 	close(channel)
 // }
 
-func enumerateProducts(channel chan<- *Product) {
+func enumerateProducts2(channel chan<- *Product) {
 	for _, p := range ProductList {
 		select {
 		case channel<-p:
@@ -34,13 +34,40 @@ func enumerateProducts(channel chan<- *Product) {
 	}
 	close(channel)
 }
+// sending to multiple channels
+func enumerateProducts2(channel1, channel2 chan<- *Product) {
+	for _, p := range ProductList {
+		select {
+		case channel1<-p:
+			fmt.Println("Sent via channel 1:", p.Name)
+		case channel2<-p:
+			fmt.Println("Sent via channel 2:", p.Name)
+		default:
+			fmt.Println("Discarding product:", p.Name)
+			time.Sleep(time.Second)
+		}
+	}
+	close(channel1)
+	close(channel2)
+}
 
 func main() {
-	productChannel := make(chan *Product, 5)
-	go enumerateProducts(productChannel)
+	// productChannel := make(chan *Product, 5)
+	// go enumerateProducts(productChannel)
+	// time.Sleep(time.Second)
+	// for p := range productChannel {
+	// 	fmt.Println("Received product:", p.Name)
+	// }
+
+	c1 := make(chan *Product, 2)
+	c2 := make(chan *Product, 2)
+	go enumerateProducts(c1, c2)
 	time.Sleep(time.Second)
-	for p := range productChannel {
-		fmt.Println("Received product:", p.Name)
+	for p := range c1 {
+		fmt.Println("Channel 1 received product:", p.Name)
+	}
+	for p := range c2 {
+		fmt.Println("Channel 2 received product:", p.Name)
 	}
 }
 
