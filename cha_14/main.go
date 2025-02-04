@@ -14,16 +14,37 @@ func receiveDispatches(channel <-chan DispatchNotification) {
 
 // use go run . to run the project
 
+// func enumerateProducts(channel chan<- *Product) {
+// 	for _,p := range ProductList[:3] {
+// 		channel <- p
+// 		time.Sleep(time.Millisecond*800)
+// 	}
+// 	close(channel)
+// }
+
 func enumerateProducts(channel chan<- *Product) {
-	for _,p := range ProductList[:3] {
-		channel <- p
-		time.Sleep(time.Millisecond*800)
+	for _, p := range ProductList {
+		select {
+		case channel<-p:
+			fmt.Println("Sent product:", p.Name)
+		default:
+			fmt.Println("Discarding product:", p.Name)
+			time.Sleep(time.Second)
+		}
 	}
 	close(channel)
 }
 
-
 func main() {
+	productChannel := make(chan *Product, 5)
+	go enumerateProducts(productChannel)
+	time.Sleep(time.Second)
+	for p := range productChannel {
+		fmt.Println("Received product:", p.Name)
+	}
+}
+
+func main3() {
 	dispatchChannel := make(chan DispatchNotification, 100)
 	// var sendOnlyChannel chan<- DispatchNotification = dispatchChannel
 	// var receiveChannel <-chan DispatchNotification = dispatchChannel
