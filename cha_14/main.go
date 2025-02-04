@@ -35,7 +35,7 @@ func enumerateProducts2(channel chan<- *Product) {
 	close(channel)
 }
 // sending to multiple channels
-func enumerateProducts2(channel1, channel2 chan<- *Product) {
+func enumerateProducts(channel1, channel2 chan<- *Product) {
 	for _, p := range ProductList {
 		select {
 		case channel1<-p:
@@ -77,7 +77,7 @@ func main3() {
 	// var receiveChannel <-chan DispatchNotification = dispatchChannel
 
 	productChannel := make(chan *Product)
-	go enumerateProducts(productChannel)
+	// go enumerateProducts(productChannel)
 	openChannels := 2
 
 	// type conversion we can alos do
