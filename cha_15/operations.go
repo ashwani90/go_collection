@@ -8,6 +8,12 @@ func (e *CategoryError) Error() string {
 	return "Category" + e.requestedCategory + "does not exist"
 }
 
+type ChannelMessage struct {
+	Category string
+	Total float64
+	*CategoryError
+}
+
 func (slice ProductSlice) TotalPrice(category string) (total float64, err *CategoryError) {
 	productCount := 0
 	for _, p := range slice {
@@ -22,3 +28,14 @@ func (slice ProductSlice) TotalPrice(category string) (total float64, err *Categ
 	return
 }
 
+func (slice ProductSlice) TotalPriceAsync(categories []string, channel chan<- ChannelMessage) {
+	for _, c := range categories {
+		total, err := slice.TotalPrice(c)
+		channel<- ChannelMessage {
+			Category: c,
+			Total: total, 
+			CategoryError: err,
+		}
+	}
+	close(channel)
+}
