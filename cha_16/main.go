@@ -4,6 +4,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	"unicode"
 )
 
 func main() {
@@ -25,4 +26,9 @@ func main() {
 	fmt.Println("Upper:", upperChar, []byte(upperChar))
 	titleChar := strings.ToTitle(specialChar)
 	fmt.Println("Title:", titleChar, []byte(titleChar))
+
+	// Working with Characters
+	for _, char := range product {
+		fmt.Println(string(char), "Upper case:", unicode.IsUpper(char))
+	}
 }
