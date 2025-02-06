@@ -39,4 +39,9 @@ func main() {
 	fmt.Println("IndexAny:", strings.IndexAny(description2, "abcd"))
 	fmt.Println("LastIndex:", strings.LastIndex(description2, "o"))
 	fmt.Println("LastIndexAny:", strings.LastIndexAny(description2, "abcd"))
+
+	isLetterB := func(r rune) bool {
+		return r == 'B' || r == 'b'
+	}
+	fmt.Println("IndexFunc:", strings.IndexFunc(description, isLetterB))
 }
