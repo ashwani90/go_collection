@@ -3,7 +3,22 @@ package main
 import "fmt"
 
 func main() {
-	recoveryFunc := func() {
+
+	
+	// recoveryFunc := func() {
+	// 	if arg := recover(); arg != nil {
+	// 		if err, ok := arg.(error); ok {
+	// 			fmt.Println("Error:", err.Error())
+	// 		} else if str, ok := arg.(string);ok {
+	// 			fmt.Println("Message:", str)
+	// 		} else {
+	// 			fmt.Println("Panic Recovered")
+	// 		}
+	// 	}
+	// }
+
+	// can also use anonymous function
+	defer func() {
 		if arg := recover(); arg != nil {
 			if err, ok := arg.(error); ok {
 				fmt.Println("Error:", err.Error())
@@ -13,8 +28,8 @@ func main() {
 				fmt.Println("Panic Recovered")
 			}
 		}
-	}
-	defer recoveryFunc()
+	}()
+	// defer recoveryFunc()
 	categories := []string {"Watersports", "Chess", "Running" }
 	channel := make(chan ChannelMessage, 10)
 	go Products.TotalPriceAsync(categories, channel)
