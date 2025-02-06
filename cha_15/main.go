@@ -6,12 +6,16 @@ import "fmt"
 type CategoryCountMessage struct {
 	Category string
 	Count int
+	TerminalError interface{}
 }
 
 func processCategories(categories []string, outChan chan <- CategoryCountMessage) {
 	defer func() {
 		if arg := recover(); arg != nil {
 			fmt.Println(arg)
+			outChan <- CategoryCountMessage {
+				TerminalError: arg,
+			}
 			close(outChan)
 		}
 	}()
