@@ -18,4 +18,9 @@ func main() {
 	description := "A boat is sailing"
 	fmt.Println("Original:", description)
 	fmt.Println("Title:", strings.Title(description))
+
+	specialChar := "\u01c9"
+	fmt.Println("Original:", specialChar, []byte(specialChar))
+	upperChar := strings.ToUpper(specialChar)
+	fmt.Println("Upper:", upperChar, []byte(upperChar))
 }
