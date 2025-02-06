@@ -54,4 +54,9 @@ func main() {
 	for _, x := range splitsAfter {
 		fmt.Println("SplitAfter >>" + x + "<<")
 	}
+
+	splits2 := strings.SplitN(description, " ", 3)
+	for _, x := range splits2 {
+		fmt.Println("SplitAfter >> " + x + "<<")
+	}
 }
