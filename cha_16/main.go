@@ -31,4 +31,12 @@ func main() {
 	for _, char := range product {
 		fmt.Println(string(char), "Upper case:", unicode.IsUpper(char))
 	}
+
+	description2 := "A boat for one person"
+	fmt.Println("Count:", strings.Count(description2, "o"))
+	fmt.Println("Index:", strings.Index(description2, "o"))
+	fmt.Println("LastIndex:", strings.LastIndex(description2, "o"))
+	fmt.Println("IndexAny:", strings.IndexAny(description2, "abcd"))
+	fmt.Println("LastIndex:", strings.LastIndex(description2, "o"))
+	fmt.Println("LastIndexAny:", strings.LastIndexAny(description2, "abcd"))
 }
