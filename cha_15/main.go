@@ -23,8 +23,8 @@ func main() {
 			fmt.Println(message.Category, "Total:", ToCurrency(message.Total))
 		} else {
 			// Dealing with unrecoverable errors
-			fmt.Println(message.Category, "(no such category)")
-			// panic(message.CategoryError)
+			// fmt.Println(message.Category, "(no such category)")
+			panic(message.CategoryError)
 		}
 	}
 }
