@@ -13,7 +13,7 @@ func (e *CategoryError) Error() string {
 type ChannelMessage struct {
 	Category string
 	Total float64
-	*CategoryError error
+	CategoryError error
 }
 
 func (slice ProductSlice) TotalPrice(category string) (total float64, err error) {
@@ -26,7 +26,9 @@ func (slice ProductSlice) TotalPrice(category string) (total float64, err error)
 	}
 	if (productCount == 0) {
 		// err = &CategoryError{ requestedCategory: category }
-		error = errors.New("Cannot find category")
+		err = errors.New("Cannot find category")
+		// can also format error
+		// err = fmt.Errorf("cannot find category: %v", category)
 	}
 	return
 }
