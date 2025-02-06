@@ -22,6 +22,8 @@ func main() {
 		if arg := recover(); arg != nil {
 			if err, ok := arg.(error); ok {
 				fmt.Println("Error:", err.Error())
+				// panic after recovering
+				panic(err)
 			} else if str, ok := arg.(string);ok {
 				fmt.Println("Message:", str)
 			} else {
