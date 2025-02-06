@@ -1,5 +1,7 @@
 package main
 
+import "errors"
+
 type CategoryError struct {
 	requestedCategory string
 }
@@ -11,10 +13,10 @@ func (e *CategoryError) Error() string {
 type ChannelMessage struct {
 	Category string
 	Total float64
-	*CategoryError
+	*CategoryError error
 }
 
-func (slice ProductSlice) TotalPrice(category string) (total float64, err *CategoryError) {
+func (slice ProductSlice) TotalPrice(category string) (total float64, err error) {
 	productCount := 0
 	for _, p := range slice {
 		if (p.Category == category) {
@@ -23,7 +25,8 @@ func (slice ProductSlice) TotalPrice(category string) (total float64, err *Categ
 		}
 	}
 	if (productCount == 0) {
-		err = &CategoryError{ requestedCategory: category }
+		// err = &CategoryError{ requestedCategory: category }
+		error = errors.New("Cannot find category")
 	}
 	return
 }
