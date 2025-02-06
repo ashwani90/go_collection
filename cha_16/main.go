@@ -14,4 +14,8 @@ func main() {
 	fmt.Println("EqualFold:", strings.EqualFold(product, "KAYAK"))
 	fmt.Println("HasPrefix:", strings.HasPrefix(product, "Ka"))
 	fmt.Println("HasSuffix:", strings.HasSuffix(product, "yak"))
+
+	description := "A boat is sailing"
+	fmt.Println("Original:", description)
+	fmt.Println("Title:", strings.Title(description))
 }
