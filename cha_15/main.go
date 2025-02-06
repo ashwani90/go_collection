@@ -39,7 +39,12 @@ func main() {
 	channel := make(chan CategoryCountMessage)
 	go processCategories(categories, channel)
 	for message := range channel {
-		fmt.Println(message.Category, "Total:", message.Count)
+		if (message.TerminalError == nil) {
+			fmt.Println(message.Category, "Total:", message.Count)
+		} else {
+			fmt.Println("A Terminal error has occures")
+		}
+		
 	}
 }
 
