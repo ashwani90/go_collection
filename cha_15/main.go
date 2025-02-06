@@ -12,6 +12,7 @@ func processCategories(categories []string, outChan chan <- CategoryCountMessage
 	defer func() {
 		if arg := recover(); arg != nil {
 			fmt.Println(arg)
+			close(outChan)
 		}
 	}()
 	channel := make(chan ChannelMessage, 10)
