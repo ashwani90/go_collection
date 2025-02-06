@@ -44,4 +44,14 @@ func main() {
 		return r == 'B' || r == 'b'
 	}
 	fmt.Println("IndexFunc:", strings.IndexFunc(description, isLetterB))
+
+	splits := strings.Split(description2, " ")
+	for _, x := range splits {
+		fmt.Println("Split >>" + x + "<<")
+	}
+
+	splitsAfter := strings.SplitAfter(description, " ")
+	for _, x := range splitsAfter {
+		fmt.Println("SplitAfter >>" + x + "<<")
+	}
 }
