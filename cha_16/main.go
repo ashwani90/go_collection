@@ -1,8 +1,11 @@
 package main
 
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	fmt.Println("Hello String processing")
+	product := "Kayak"
+	fmt.Println("Product:", product)
 }
