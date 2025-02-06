@@ -54,7 +54,7 @@ func main() {
 	for _, x := range splitsAfter {
 		fmt.Println("SplitAfter >>" + x + "<<")
 	}
-
+	description = "This  is  double  spaced"
 	splits2 := strings.SplitN(description, " ", 3)
 	for _, x := range splits2 {
 		fmt.Println("SplitAfter >> " + x + "<<")
