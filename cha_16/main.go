@@ -68,4 +68,8 @@ func main() {
 	for _, x := range splits {
 		fmt.Println("Field >>" + x + "<<")
 	}
+
+	username := "Alice"
+	trimmed := strings.TrimSpace(username)
+	fmt.Println("Trimmed:", ">>" + trimmed + "<<")
 }
