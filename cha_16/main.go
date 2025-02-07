@@ -59,4 +59,13 @@ func main() {
 	for _, x := range splits2 {
 		fmt.Println("SplitAfter >> " + x + "<<")
 	}
+
+	splitter := func(r rune) bool {
+		return r == ' '
+	}
+
+	splits = strings.FieldsFunc(description, splitter)
+	for _, x := range splits {
+		fmt.Println("Field >>" + x + "<<")
+	}
 }
