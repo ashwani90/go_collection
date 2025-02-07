@@ -72,4 +72,6 @@ func main() {
 	username := "Alice"
 	trimmed := strings.TrimSpace(username)
 	fmt.Println("Trimmed:", ">>" + trimmed + "<<")
+
+	// Trimming character Sets
 }
