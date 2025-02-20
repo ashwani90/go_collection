@@ -76,4 +76,9 @@ func main() {
 	// Trimming character Sets
 	trimmed = strings.Trim(description, "Asno ")
 	fmt.Println("Trimmed:", trimmed)
+
+	prefixedTrimmed := strings.TrimPrefix(description, "A boat ")
+	wrongPrefix := strings.TrimPrefix(description, "A hat ")
+	fmt.Println("Trimmed:", prefixedTrimmed)
+	fmt.Println("Not trimmed:", wrongPrefix)
 }
