@@ -94,4 +94,14 @@ func main() {
 	replaceAll := strings.ReplaceAll(text, "boat", "truck")
 	fmt.Println("Replace:", replace)
 	fmt.Println("Replace All:", replaceAll)
+
+	mapper := func(r rune) rune {
+		if r == 'b' {
+			return 'c'
+		}
+		return r
+	}
+
+	mapped := strings.Map(mapper, text)
+	fmt.Println("Mapped:", mapped)
 }
