@@ -104,4 +104,6 @@ func main() {
 
 	mapped := strings.Map(mapper, text)
 	fmt.Println("Mapped:", mapped)
+
+	// Using a string replacer
 }
