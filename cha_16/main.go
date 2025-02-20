@@ -74,6 +74,6 @@ func main() {
 	fmt.Println("Trimmed:", ">>" + trimmed + "<<")
 
 	// Trimming character Sets
-	trimmed := strings.Trim(description, "Asno ")
+	trimmed = strings.Trim(description, "Asno ")
 	fmt.Println("Trimmed:", trimmed)
 }
