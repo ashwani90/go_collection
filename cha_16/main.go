@@ -81,4 +81,11 @@ func main() {
 	wrongPrefix := strings.TrimPrefix(description, "A hat ")
 	fmt.Println("Trimmed:", prefixedTrimmed)
 	fmt.Println("Not trimmed:", wrongPrefix)
+
+	trimmer := func(r rune) bool {
+		return r == 'A' || r == 'n'
+	}
+
+	trimmed = strings.TrimFunc(description, trimmer)
+	fmt.Println("Trimmed:", trimmed)
 }
