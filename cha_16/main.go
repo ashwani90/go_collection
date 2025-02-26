@@ -158,4 +158,12 @@ func main() {
 	for i, idx := range allIndices {
 		fmt.Println("Index", i, "=", idx[0], "-", idx[1], "=", getSubstring(description, idx))
 	}
+
+	firstMatch := pattern.FindString(description)
+	allMatches := pattern.FindAllString(description, -1)
+	fmt.Println("First match:", firstMatch)
+
+	for i, m := range allMatches {
+		fmt.Println("Match", i, "=", m)
+	}
 }
