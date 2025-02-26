@@ -109,4 +109,8 @@ func main() {
 	replacer := strings.NewReplacer("boat", "kayak", "small", "huge")
 	replaced := replacer.Replace(text)
 	fmt.Println("Replaced: ", replaced)
+
+	elements := strings.Fields(text)
+	joined := strings.Join(elements, "--")
+	fmt.Println("Joined:", joined)
 }
