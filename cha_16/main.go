@@ -106,4 +106,7 @@ func main() {
 	fmt.Println("Mapped:", mapped)
 
 	// Using a string replacer
+	replacer := strings.NewReplacer("boat", "kayak", "small", "huge")
+	replaced := replacer.Replace(text)
+	fmt.Println("Replaced: ", replaced)
 }
