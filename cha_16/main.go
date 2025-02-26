@@ -166,4 +166,12 @@ func main() {
 	for i, m := range allMatches {
 		fmt.Println("Match", i, "=", m)
 	}
+
+	pattern = regexp.MustCompile(" |boat|one")
+	split := pattern.Split(description, -1)
+	for _, s := range split {
+		if s != "" {
+			fmt.Println("Substring:", s)
+		}
+	}
 }
