@@ -4,6 +4,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	"regexp"
 	"unicode"
 )
 
@@ -123,4 +124,11 @@ func main() {
 		builder.WriteRune(' ')
 	}
 	fmt.Println("String: ", builder.String())
+
+	match, err := regexp.MatchString("[A-z]oat", description)
+	if (err == nil) {
+		fmt.Println("Match: ", match)
+	} else {
+		fmt.Println("Error: ", err)
+	}
 }
