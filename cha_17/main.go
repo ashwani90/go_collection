@@ -30,4 +30,6 @@ var Products =[]Product {
 func main() {
 	fmt.Println("Hello formatting strings")
 	fmt.Println("Product:", Kayak.Name, "Price:", Kayak.Price)
+
+	fmt.Printf("Product: %v, Price: $%4.2f", Kayak.Name, Kayak.Price)
 }
