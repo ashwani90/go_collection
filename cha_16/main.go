@@ -194,4 +194,9 @@ func main() {
 	template := "(type: ${type}, capacity ${capacity})"
 	replaced = pattern.ReplaceAllString(description, template)
 	fmt.Println(replaced)
+
+	replaced = pattern.ReplaceAllStringFunc(description, func(s string) string {
+		return "This is the replacement content"
+	})
+	fmt.Println(replaced)
 }
