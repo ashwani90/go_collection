@@ -36,6 +36,10 @@ func getProductName(index int) (name string,  err error) {
 	return
 }
 
+func Printfln(template string, values ...interface{}) {
+	fmt.Printf(template + "\n", values...)
+}
+
 func main() {
 	fmt.Println("Hello formatting strings")
 	fmt.Println("Product:", Kayak.Name, "Price:", Kayak.Price)
@@ -47,4 +51,8 @@ func main() {
 
 	_, err := getProductName(10)
 	fmt.Println(err.Error())
+
+	Printfln("Value %v", Kayak)
+	Printfln("Go syntax: %#v", Kayak)
+	Printfln("Type: %T", Kayak)
 }
