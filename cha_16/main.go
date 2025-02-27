@@ -190,4 +190,8 @@ func main() {
 	for _, name := range []string {"type", "capacity"} {
 		fmt.Println(name, "=", subs[pattern.SubexpIndex(name)])
 	}
+
+	template := "(type: ${type}, capacity ${capacity})"
+	replaced = pattern.ReplaceAllString(description, template)
+	fmt.Println(replaced)
 }
