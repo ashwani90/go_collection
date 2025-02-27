@@ -5,7 +5,7 @@ type Product struct {
 	Price float64
 }
 
-var Kayak = Product {
+var Kayak = Product{
 	Name: "Kayak",
 	Category: "Watersports",
 	Price: 275,
