@@ -74,4 +74,5 @@ func main() {
 	Printfln("Decimal without exponenet: %f", number)
 	Printfln("Hexadecimal: %x, %X", number, number)
 	Printfln("Decimal without exponent: >>%8.2f<<", number)
+	Printfln("Decimal without exponent: >>%.2f<<", number)
 }
