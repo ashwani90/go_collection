@@ -75,4 +75,8 @@ func main() {
 	Printfln("Hexadecimal: %x, %X", number, number)
 	Printfln("Decimal without exponent: >>%8.2f<<", number)
 	Printfln("Decimal without exponent: >>%.2f<<", number)
+
+	Printfln("Sign: >>%+.2f<<", number)
+	Printfln("Zeroes for Padding: >>%010.2f<<", number)
+	Printfln("Right Padding: >>%-8.2f<<", number)
 }
