@@ -79,4 +79,10 @@ func main() {
 	Printfln("Sign: >>%+.2f<<", number)
 	Printfln("Zeroes for Padding: >>%010.2f<<", number)
 	Printfln("Right Padding: >>%-8.2f<<", number)
+
+
+	name = "Kayak"
+	Printfln("String: %s", name)
+	Printfln("Character: %c", []rune(name)[0])
+	Printfln("Unicode: %U", []rune(name)[0])
 }
