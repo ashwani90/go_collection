@@ -61,4 +61,10 @@ func main() {
 	Printfln("Type: %T", Kayak)
 
 	Printfln("Value with fields: %+v", Kayak)
+
+	number := 250
+	Printfln("Binary: %b", number)
+	Printfln("Decimal: %d", number)
+	Printfln("Octal: %o, %O", number)
+	Printfln("Hexadecimal: %x, %X", number)
 }
