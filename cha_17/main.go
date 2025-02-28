@@ -67,4 +67,10 @@ func main() {
 	Printfln("Decimal: %d", number)
 	Printfln("Octal: %o, %O", number)
 	Printfln("Hexadecimal: %x, %X", number)
+
+	number = 279.00
+	Printfln("DecimalLess with exponent: %b", number)
+	Printfln("Decimal with exponent: %e", number)
+	Printfln("Decimal without exponenet: %f", number)
+	Printfln("Hexadecimal: %x, %X", number, number)
 }
