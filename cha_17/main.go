@@ -40,6 +40,10 @@ func Printfln(template string, values ...interface{}) {
 	fmt.Printf(template + "\n", values...)
 }
 
+func (p Product) String() string {
+	return fmt.Sprintf("Product: %v, Price: $%4.2f", p.Name, p.Price)
+}
+
 func main() {
 	fmt.Println("Hello formatting strings")
 	fmt.Println("Product:", Kayak.Name, "Price:", Kayak.Price)
