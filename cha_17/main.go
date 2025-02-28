@@ -3,28 +3,28 @@ package main
 
 import "fmt"
 
-type Product struct {
-	Name, Category string
-	Price float64
-}
+// type Product struct {
+// 	Name, Category string
+// 	Price float64
+// }
 
-var Kayak = Product{
-	Name: "Kayak",
-	Category: "Watersports",
-	Price: 275,
-}
+// var Kayak = Product{
+// 	Name: "Kayak",
+// 	Category: "Watersports",
+// 	Price: 275,
+// }
 
-var Products =[]Product {
-	{"Keyak", "watersports", 279},
-	{"Lifejacket", "watersports", 279},
-	{"Soccer Ball", "Soccer", 279},
-	{"Corner Flags", "Soccer", 279},
-	{"Stadium", "Soccer", 279},
-	{"Thinking Cap", "Chess", 279},
-	{"Unsteady Chair", "Chess", 279},
-	{"Bling", "Chess", 279},
-	{"King", "Chess", 279},
-}
+// var Products =[]Product {
+// 	{"Keyak", "watersports", 279},
+// 	{"Lifejacket", "watersports", 279},
+// 	{"Soccer Ball", "Soccer", 279},
+// 	{"Corner Flags", "Soccer", 279},
+// 	{"Stadium", "Soccer", 279},
+// 	{"Thinking Cap", "Chess", 279},
+// 	{"Unsteady Chair", "Chess", 279},
+// 	{"Bling", "Chess", 279},
+// 	{"King", "Chess", 279},
+// }
 
 
 func getProductName(index int) (name string,  err error) {
@@ -55,4 +55,6 @@ func main() {
 	Printfln("Value %v", Kayak)
 	Printfln("Go syntax: %#v", Kayak)
 	Printfln("Type: %T", Kayak)
+
+	Printfln("Value with fields: %+v", Kayak)
 }
